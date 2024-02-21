@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://crsku04c2hgr4"]
+
+[ext_resource type="Script" path="res://scripts/judgeManager.gd" id="1_6vd6h"]
+[ext_resource type="PackedScene" uid="uid://dv3wgccu8pjog" path="res://scenes/judge.tscn" id="2_ng4a5"]
+
+[node name="game" type="Node2D"]
+
+[node name="sceneManager" type="Node2D" parent="."]
+
+[node name="judgeManager" type="Node2D" parent="."]
+script = ExtResource("1_6vd6h")
+
+[node name="judge" parent="." instance=ExtResource("2_ng4a5")]

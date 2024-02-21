@@ -1,0 +1,48 @@
+[gd_scene load_steps=7 format=3 uid="uid://bung32w323jlp"]
+
+[ext_resource type="Script" path="res://scripts/invent.gd" id="1_43gbc"]
+[ext_resource type="Texture2D" uid="uid://cokoouaqlenat" path="res://assets/desk/drawing_desk.png" id="2_k127s"]
+[ext_resource type="Texture2D" uid="uid://bx4mesbfty3rc" path="res://assets/desk/pencil.png" id="3_1c8v5"]
+[ext_resource type="Texture2D" uid="uid://veaylkdl7jqp" path="res://assets/desk/eraser.png" id="4_l62hi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rvs7n"]
+size = Vector2(640.341, 490)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ownkn"]
+radius = 23.0
+height = 250.0
+
+[node name="invent" type="Node2D"]
+
+[node name="background" type="Sprite2D" parent="."]
+texture = ExtResource("2_k127s")
+
+[node name="Area2D" type="Area2D" parent="background"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="background/Area2D" groups=["paper"]]
+position = Vector2(-122.165, 25.2183)
+rotation = -0.0523599
+shape = SubResource("RectangleShape2D_rvs7n")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Pencil" type="Sprite2D" parent="."]
+position = Vector2(272, -93)
+texture = ExtResource("3_1c8v5")
+
+[node name="Area2D" type="Area2D" parent="Pencil"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pencil/Area2D"]
+position = Vector2(1, -2)
+shape = SubResource("CapsuleShape2D_ownkn")
+
+[node name="Eraser" type="Sprite2D" parent="."]
+position = Vector2(292, 146)
+texture = ExtResource("4_l62hi")
+
+[node name="draw" type="Node2D" parent="."]
+script = ExtResource("1_43gbc")
+
+[connection signal="mouse_entered" from="background/Area2D" to="draw" method="_on_paper_entered"]
+[connection signal="mouse_exited" from="background/Area2D" to="draw" method="_on_paper_exited"]
+[connection signal="input_event" from="Pencil/Area2D" to="draw" method="_on_pencil_clicked"]

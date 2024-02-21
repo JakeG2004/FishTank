@@ -1,0 +1,20 @@
+FISHTANK
+
+Shark tank type game where you make a product, draw it, and propose it to some fish
+Lots of fish puns
+
+Gameplay:
+	Make product drawing
+	Give it a name
+	Giving it some tags out of a list of tags
+	Present it to the fish.
+	Try to get a deal
+	If success:
+		A newspaper article using the drawing stating how the product was a failure despite succeeding on fish tank
+	If failure:
+		option to try again
+	
+
+STRETCH FEATURES:
+	Animated fish mouths, spongebob news reporter style
+	ChatGPT interaction
