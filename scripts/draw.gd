@@ -17,6 +17,7 @@ var onPaper = false
 var tool = "none"
 
 @onready var ap = get_parent().get_node("AnimationPlayer")
+@onready var inventionManager = get_tree().get_root().get_node("game/inventionManager")
 
 func _input(_event):
 	if(!onPaper):
@@ -39,6 +40,7 @@ func _input(_event):
 				i += 1
 			queue_redraw()
 			
+	#additional draw to get rid of eraser circle
 	queue_redraw()
 
 func _draw():
@@ -48,15 +50,6 @@ func _draw():
 	#indicate eraser radius
 	if(tool == "eraser" and Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT)):
 		draw_circle(get_global_mouse_position(), eraseSize, Color.PINK)
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta):
-	pass
 
 func _on_paper_entered():
 	onPaper = true
@@ -73,3 +66,9 @@ func _on_eraser_clicked(_viewport, _event, _shape_idx):
 	if(Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT)):
 		tool = "eraser"
 		ap.play("eraser")
+
+func _on_approve_clicked(_viewport, _event, _shape_idx):
+	#send drawing to drawingManager
+	if(Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT)):
+		inventionManager.getDrawing(points)
+
