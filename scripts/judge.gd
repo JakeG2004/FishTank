@@ -2,7 +2,7 @@ extends Node2D
 
 @onready var judgeManager = get_tree().get_root().get_node("game/judgeManager")
 
-var tags = ["gadget", "kitchen", "health", "smarthome", "outdoor", "pets", "fashion", "education", "transport", "beauty", "robotics", "decor", "travel", "environmental"]
+var tags = []
 
 var likes = []
 var dislikes = []
@@ -10,18 +10,18 @@ var fishName
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	tags = judgeManager.tags
 	initJudge()
-	print(fishName)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	pass
 	
 func initJudge():
 	#get name from judge manager
 	fishName = judgeManager.getName()
 	
-	for x in range(3):
+	for x in range(2):
 		#Make likes
 		var tmp = randi_range(0, tags.size() - 1)
 		likes.append(tags[tmp])

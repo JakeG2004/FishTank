@@ -1,0 +1,242 @@
+[gd_scene load_steps=18 format=3 uid="uid://bung32w323jlp"]
+
+[ext_resource type="AudioStream" uid="uid://kxf53u6uw5h5" path="res://assets/audio/sfx/pencil-select.mp3" id="1_ji64v"]
+[ext_resource type="AudioStream" uid="uid://die83twsbgok8" path="res://assets/audio/sfx/eraser-selected.mp3" id="2_1napr"]
+[ext_resource type="Texture2D" uid="uid://cokoouaqlenat" path="res://assets/drawdesk/drawing_desk.png" id="3_ukywx"]
+[ext_resource type="Texture2D" uid="uid://bx4mesbfty3rc" path="res://assets/drawdesk/pencil.png" id="4_fxf1s"]
+[ext_resource type="Texture2D" uid="uid://veaylkdl7jqp" path="res://assets/drawdesk/eraser.png" id="5_mt18n"]
+[ext_resource type="Texture2D" uid="uid://x3u2oourkd4q" path="res://assets/UI/check.png" id="6_wvmis"]
+[ext_resource type="Script" path="res://scripts/draw.gd" id="7_jqxs0"]
+[ext_resource type="PackedScene" uid="uid://dh1npvr0tjcao" path="res://scenes/objects/infocard.tscn" id="8_ae22f"]
+[ext_resource type="PackedScene" uid="uid://dk8helgtx05ip" path="res://scenes/objects/confirmcard.tscn" id="9_drnan"]
+
+[sub_resource type="Animation" id="Animation_dp1ue"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Eraser:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../Eraser:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_o7omg"]
+resource_name = "eraser"
+length = 0.25
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Eraser:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0001, 0.06, 0.18, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, -0.349066, 0.349066, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Eraser:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.12, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.5, 1.5), Vector2(1, 1)]
+}
+tracks/2/type = "audio"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../AudioStreamPlayer")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("1_ji64v")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/2/use_blend = true
+
+[sub_resource type="Animation" id="Animation_gndgk"]
+resource_name = "pencil"
+length = 0.25
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.06, 0.18, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.349066, 0.349066, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.12, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.5, 1.5), Vector2(1, 1)]
+}
+tracks/2/type = "audio"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../AudioStreamPlayer")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("2_1napr")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/2/use_blend = true
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_y4y5w"]
+_data = {
+"RESET": SubResource("Animation_dp1ue"),
+"eraser": SubResource("Animation_o7omg"),
+"pencil": SubResource("Animation_gndgk")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rvs7n"]
+size = Vector2(640.341, 490)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ownkn"]
+radius = 23.0
+height = 250.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o1hgi"]
+size = Vector2(41.1027, 120.957)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xbxhf"]
+size = Vector2(340, 362.5)
+
+[node name="invent" type="Node2D"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+max_polyphony = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Pencil")
+libraries = {
+"": SubResource("AnimationLibrary_y4y5w")
+}
+
+[node name="background" type="Sprite2D" parent="."]
+texture = ExtResource("3_ukywx")
+
+[node name="Area2D" type="Area2D" parent="background"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="background/Area2D" groups=["paper"]]
+position = Vector2(-122.165, 25.2183)
+rotation = -0.0523599
+shape = SubResource("RectangleShape2D_rvs7n")
+
+[node name="Pencil" type="Sprite2D" parent="."]
+position = Vector2(272, -93)
+texture = ExtResource("4_fxf1s")
+
+[node name="Area2D" type="Area2D" parent="Pencil"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pencil/Area2D"]
+position = Vector2(1, -2)
+shape = SubResource("CapsuleShape2D_ownkn")
+
+[node name="Eraser" type="Sprite2D" parent="."]
+position = Vector2(292, 146)
+texture = ExtResource("5_mt18n")
+
+[node name="Area2D" type="Area2D" parent="Eraser"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Eraser/Area2D"]
+position = Vector2(1.93689, -0.828918)
+rotation = 0.698132
+shape = SubResource("RectangleShape2D_o1hgi")
+
+[node name="approve" type="Sprite2D" parent="."]
+position = Vector2(471, 220)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("6_wvmis")
+
+[node name="Area2D" type="Area2D" parent="approve"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="approve/Area2D"]
+position = Vector2(0, -3.75)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_xbxhf")
+
+[node name="draw" type="Node2D" parent="."]
+script = ExtResource("7_jqxs0")
+
+[node name="infocard" parent="." instance=ExtResource("8_ae22f")]
+position = Vector2(-4, -5)
+scale = Vector2(0.65, 0.65)
+
+[node name="confirmcard" parent="." instance=ExtResource("9_drnan")]
+scale = Vector2(0.65, 0.65)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[connection signal="mouse_entered" from="background/Area2D" to="draw" method="_on_paper_entered"]
+[connection signal="mouse_exited" from="background/Area2D" to="draw" method="_on_paper_exited"]
+[connection signal="input_event" from="Pencil/Area2D" to="draw" method="_on_pencil_clicked"]
+[connection signal="input_event" from="Eraser/Area2D" to="draw" method="_on_eraser_clicked"]
+[connection signal="input_event" from="approve/Area2D" to="draw" method="_on_approve_clicked"]

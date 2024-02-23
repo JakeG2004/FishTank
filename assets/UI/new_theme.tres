@@ -1,0 +1,7 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://pgnhucqxedsh"]
+
+[ext_resource type="FontFile" uid="uid://nt3k6vysl5gf" path="res://assets/fonts/MarinaSundaland-qZYor.otf" id="1_bmsv6"]
+
+[resource]
+default_font = ExtResource("1_bmsv6")
+default_font_size = 35

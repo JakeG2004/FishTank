@@ -1,6 +1,6 @@
 extends Node2D
 
-var tags = ["gadget", "kitchen", "health", "smarthome", "outdoor", "pets", "fashion", "education", "transport", "beauty", "robotics", "decor", "travel", "environmental"]
+var tags = ["gadget", "kitchen", "health", "smarthome", "outdoor", "pets", "fashion", "transport", "robotics", "weapon"]
 var names = ["Gillian", "Maria", "Finley", "Nemo", "Fisher", "Sal Mon", "Marlin", "Coraline", "Sandy", "Shelly"]
 
 func getName():
@@ -16,5 +16,5 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	pass

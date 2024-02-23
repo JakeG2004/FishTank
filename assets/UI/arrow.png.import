@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://veaylkdl7jqp"
-path="res://.godot/imported/eraser.png-6a3830ce7fe854ba7ecf6b5b0565f633.ctex"
+uid="uid://dvjvfwrewmhb1"
+path="res://.godot/imported/arrow.png-a69011ff7883cce4ea66133a1aa960db.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/desk/eraser.png"
-dest_files=["res://.godot/imported/eraser.png-6a3830ce7fe854ba7ecf6b5b0565f633.ctex"]
+source_file="res://assets/UI/arrow.png"
+dest_files=["res://.godot/imported/arrow.png-a69011ff7883cce4ea66133a1aa960db.ctex"]
 
 [params]
 

@@ -1,0 +1,321 @@
+[gd_scene load_steps=12 format=3 uid="uid://dk8helgtx05ip"]
+
+[ext_resource type="Script" path="res://scripts/confirmcard.gd" id="1_g55uj"]
+[ext_resource type="AudioStream" uid="uid://73ajeyt753j5" path="res://assets/audio/sfx/page-flip-47177.mp3" id="2_kapaa"]
+[ext_resource type="Texture2D" uid="uid://cbe33eltl0ysa" path="res://assets/UI/card.png" id="3_d1vmo"]
+[ext_resource type="Theme" uid="uid://pgnhucqxedsh" path="res://assets/UI/new_theme.tres" id="4_8krc0"]
+[ext_resource type="Texture2D" uid="uid://x3u2oourkd4q" path="res://assets/UI/check.png" id="5_qhqcq"]
+[ext_resource type="Texture2D" uid="uid://bab7kckybwmma" path="res://assets/UI/x.png" id="6_w18p4"]
+
+[sub_resource type="Animation" id="Animation_7u8wu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("card:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -1000)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("card:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("card:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AudioStreamPlayer:stream")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_kapaa")]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AudioStreamPlayer:playing")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_ajijh"]
+resource_name = "show"
+length = 0.55
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("card:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 1000), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("card:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.349066, -2.98023e-08, 0.349066, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("card:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 1), Vector2(1.5, 1.5), Vector2(1, 1), Vector2(1, 1)]
+}
+tracks/3/type = "audio"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AudioStreamPlayer")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("2_kapaa")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/3/use_blend = true
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AudioStreamPlayer:stream")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_kapaa")]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("AudioStreamPlayer:playing")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_ypfx6"]
+resource_name = "hide"
+length = 0.55
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("card:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 1000)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("card:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.349066, -2.98023e-08, -0.349066, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("card:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 1), Vector2(1.5, 1.5), Vector2(1, 1), Vector2(1, 1)]
+}
+tracks/3/type = "audio"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AudioStreamPlayer")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("2_kapaa")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/3/use_blend = true
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AudioStreamPlayer:stream")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_kapaa")]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("AudioStreamPlayer:playing")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yj7q5"]
+_data = {
+"RESET": SubResource("Animation_7u8wu"),
+"hide": SubResource("Animation_ypfx6"),
+"show": SubResource("Animation_ajijh")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8asxt"]
+size = Vector2(332, 354)
+
+[node name="confirmcard" type="Node2D"]
+script = ExtResource("1_g55uj")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_yj7q5")
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_kapaa")
+
+[node name="card" type="Node2D" parent="."]
+position = Vector2(0, -1000)
+
+[node name="Card" type="Sprite2D" parent="card"]
+rotation = -0.054255
+texture = ExtResource("3_d1vmo")
+
+[node name="fishtank" type="RichTextLabel" parent="card"]
+offset_left = -155.0
+offset_top = -395.0
+offset_right = 181.0
+offset_bottom = -308.0
+theme = ExtResource("4_8krc0")
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 86
+text = "Fish Tank"
+fit_content = true
+
+[node name="problem" type="RichTextLabel" parent="card"]
+offset_left = -159.0
+offset_top = -252.0
+offset_right = 240.0
+offset_bottom = -165.0
+theme = ExtResource("4_8krc0")
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 70
+text = "Ready to go?"
+fit_content = true
+
+[node name="description" type="RichTextLabel" parent="card"]
+offset_left = -188.0
+offset_top = -117.0
+offset_right = 177.0
+offset_bottom = 33.0
+theme = ExtResource("4_8krc0")
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 70
+bbcode_enabled = true
+text = "[center]Continue to next part?[/center]"
+
+[node name="check" type="Node2D" parent="card"]
+position = Vector2(-110, 211.85)
+scale = Vector2(0.5, 0.5)
+
+[node name="Check" type="Sprite2D" parent="card/check"]
+texture = ExtResource("5_qhqcq")
+
+[node name="Area2D" type="Area2D" parent="card/check"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="card/check/Area2D"]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_8asxt")
+
+[node name="x" type="Node2D" parent="card"]
+position = Vector2(106, 211.85)
+scale = Vector2(0.5, 0.5)
+
+[node name="Check" type="Sprite2D" parent="card/x"]
+texture = ExtResource("6_w18p4")
+
+[node name="Area2D" type="Area2D" parent="card/x"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="card/x/Area2D"]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_8asxt")
+
+[connection signal="input_event" from="card/check/Area2D" to="." method="_on_confirm"]
+[connection signal="input_event" from="card/x/Area2D" to="." method="_on_deny"]

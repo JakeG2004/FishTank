@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bx4mesbfty3rc"
-path="res://.godot/imported/pencil.png-a1f80958138a8a9a52695ee4f1ee03ae.ctex"
+uid="uid://c4ehvcnpmitap"
+path="res://.godot/imported/hook.png-4dc73cbafdc0e8b48f9257cafd4c5635.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/desk/pencil.png"
-dest_files=["res://.godot/imported/pencil.png-a1f80958138a8a9a52695ee4f1ee03ae.ctex"]
+source_file="res://assets/UI/hook.png"
+dest_files=["res://.godot/imported/hook.png-4dc73cbafdc0e8b48f9257cafd4c5635.ctex"]
 
 [params]
 

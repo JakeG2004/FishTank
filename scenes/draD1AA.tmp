@@ -1,10 +1,14 @@
-[gd_scene load_steps=14 format=3 uid="uid://bung32w323jlp"]
+[gd_scene load_steps=18 format=3 uid="uid://bung32w323jlp"]
 
 [ext_resource type="Script" path="res://scripts/draw.gd" id="1_43gbc"]
+[ext_resource type="AudioStream" uid="uid://kxf53u6uw5h5" path="res://assets/audio/sfx/pencil-select.mp3" id="1_46cje"]
 [ext_resource type="Texture2D" uid="uid://cokoouaqlenat" path="res://assets/desk/drawing_desk.png" id="2_k127s"]
+[ext_resource type="AudioStream" uid="uid://die83twsbgok8" path="res://assets/audio/sfx/eraser-selected.mp3" id="2_vhgxt"]
 [ext_resource type="Texture2D" uid="uid://bx4mesbfty3rc" path="res://assets/desk/pencil.png" id="3_1c8v5"]
-[ext_resource type="Texture2D" uid="uid://c7hnvbno3y86q" path="res://icon.svg" id="4_1324e"]
 [ext_resource type="Texture2D" uid="uid://veaylkdl7jqp" path="res://assets/desk/eraser.png" id="4_l62hi"]
+[ext_resource type="Texture2D" uid="uid://x3u2oourkd4q" path="res://assets/UI/check.png" id="4_v2crp"]
+[ext_resource type="PackedScene" uid="uid://dh1npvr0tjcao" path="res://scenes/infocard.tscn" id="6_10urf"]
+[ext_resource type="PackedScene" uid="uid://dk8helgtx05ip" path="res://scenes/confirmcard.tscn" id="7_6dymx"]
 
 [sub_resource type="Animation" id="Animation_dp1ue"]
 length = 0.001
@@ -85,6 +89,21 @@ tracks/1/keys = {
 "update": 0,
 "values": [Vector2(1, 1), Vector2(1.5, 1.5), Vector2(1, 1)]
 }
+tracks/2/type = "audio"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../AudioStreamPlayer")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("1_46cje")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/2/use_blend = true
 
 [sub_resource type="Animation" id="Animation_gndgk"]
 resource_name = "pencil"
@@ -114,6 +133,21 @@ tracks/1/keys = {
 "update": 0,
 "values": [Vector2(1, 1), Vector2(1.5, 1.5), Vector2(1, 1)]
 }
+tracks/2/type = "audio"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../AudioStreamPlayer")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("2_vhgxt")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/2/use_blend = true
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_y4y5w"]
 _data = {
@@ -133,9 +167,12 @@ height = 250.0
 size = Vector2(41.1027, 120.957)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xbxhf"]
-size = Vector2(126, 127)
+size = Vector2(340, 362.5)
 
 [node name="invent" type="Node2D"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+max_polyphony = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../Pencil")
@@ -176,16 +213,25 @@ shape = SubResource("RectangleShape2D_o1hgi")
 
 [node name="approve" type="Sprite2D" parent="."]
 position = Vector2(471, 220)
-texture = ExtResource("4_1324e")
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("4_v2crp")
 
 [node name="Area2D" type="Area2D" parent="approve"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="approve/Area2D"]
-position = Vector2(0, -0.5)
+position = Vector2(0, -3.75)
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_xbxhf")
 
 [node name="draw" type="Node2D" parent="."]
 script = ExtResource("1_43gbc")
+
+[node name="infocard" parent="." instance=ExtResource("6_10urf")]
+position = Vector2(-4, -5)
+scale = Vector2(0.65, 0.65)
+
+[node name="confirmcard" parent="." instance=ExtResource("7_6dymx")]
+scale = Vector2(0.65, 0.65)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 

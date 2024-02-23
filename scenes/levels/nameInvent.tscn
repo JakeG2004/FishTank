@@ -1,0 +1,172 @@
+[gd_scene load_steps=16 format=3 uid="uid://dclnxdfk2ny35"]
+
+[ext_resource type="Script" path="res://scripts/showDrawing.gd" id="2_jr36i"]
+[ext_resource type="Texture2D" uid="uid://c4xq5o4sannh6" path="res://assets/namedesk/naming_desk.png" id="2_rp38h"]
+[ext_resource type="Theme" uid="uid://pgnhucqxedsh" path="res://assets/UI/new_theme.tres" id="3_v3aca"]
+[ext_resource type="Script" path="res://scripts/tagAdder.gd" id="4_542er"]
+[ext_resource type="PackedScene" uid="uid://b3h2vtbkpvkp8" path="res://scenes/objects/levelLoader.tscn" id="5_iu4em"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_emy01"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ujlhk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pinba"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_r6psl"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1ukbe"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jv3va"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sldic"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qwcur"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_frc77"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4au65"]
+
+[node name="nameInvent" type="Node2D"]
+
+[node name="NamingDesk" type="Sprite2D" parent="."]
+texture = ExtResource("2_rp38h")
+
+[node name="drawing" type="Node2D" parent="."]
+script = ExtResource("2_jr36i")
+
+[node name="backArrow" parent="." instance=ExtResource("5_iu4em")]
+position = Vector2(-470, -251)
+scale = Vector2(0.36, 0.36)
+displayText = "Back to Drawing"
+
+[node name="nextArrow" parent="." instance=ExtResource("5_iu4em")]
+position = Vector2(422, 229)
+scale = Vector2(0.415, 0.415)
+sprite = "res://assets/UI/green_arrow.png"
+displayText = "Next"
+
+[node name="UI" type="Node2D" parent="."]
+
+[node name="name" type="TextEdit" parent="UI"]
+offset_left = 116.0
+offset_top = -282.0
+offset_right = 486.0
+offset_bottom = -213.0
+theme = ExtResource("3_v3aca")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_placeholder_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxEmpty_emy01")
+placeholder_text = "Name of Your Invention"
+
+[node name="feature1" type="TextEdit" parent="UI"]
+offset_left = 130.0
+offset_top = -166.0
+offset_right = 481.0
+offset_bottom = -97.0
+theme = ExtResource("3_v3aca")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_placeholder_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxEmpty_emy01")
+placeholder_text = "Standout Feature #1"
+
+[node name="feature2" type="TextEdit" parent="UI"]
+offset_left = 134.0
+offset_top = -51.0
+offset_right = 473.0
+offset_bottom = 18.0
+theme = ExtResource("3_v3aca")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_placeholder_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxEmpty_emy01")
+placeholder_text = "Standout Feature #2"
+
+[node name="tag1" type="OptionButton" parent="UI"]
+offset_left = 126.0
+offset_top = 72.0
+offset_right = 227.0
+offset_bottom = 105.0
+theme = ExtResource("3_v3aca")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ujlhk")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_pinba")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_r6psl")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_1ukbe")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_jv3va")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_sldic")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_qwcur")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_frc77")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_4au65")
+flat = true
+alignment = 1
+clip_text = true
+fit_to_longest_item = false
+script = ExtResource("4_542er")
+
+[node name="tag2" type="OptionButton" parent="UI"]
+offset_left = 257.0
+offset_top = 74.0
+offset_right = 358.0
+offset_bottom = 107.0
+theme = ExtResource("3_v3aca")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ujlhk")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_pinba")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_r6psl")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_1ukbe")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_jv3va")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_sldic")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_qwcur")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_frc77")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_4au65")
+flat = true
+alignment = 1
+clip_text = true
+fit_to_longest_item = false
+script = ExtResource("4_542er")
+tagNum = 2
+
+[node name="tag3" type="OptionButton" parent="UI"]
+offset_left = 387.0
+offset_top = 78.0
+offset_right = 488.0
+offset_bottom = 111.0
+theme = ExtResource("3_v3aca")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ujlhk")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_pinba")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_r6psl")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_1ukbe")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_jv3va")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_sldic")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_qwcur")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_frc77")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_4au65")
+flat = true
+alignment = 1
+clip_text = true
+fit_to_longest_item = false
+script = ExtResource("4_542er")
+tagNum = 3
+
+[node name="Camera2D" type="Camera2D" parent="."]
