@@ -2,6 +2,12 @@ extends Node2D
 
 var points = []
 var inventionName = ""
+var feature1
+var feature2
+var tag1
+var tag2
+var tag3
+
 var problem
 
 class Point:
@@ -14,6 +20,14 @@ class Point:
 
 func _ready():
 	problem = generateProblem()
+	
+func setData(newName, dFeature1, dFeature2, dTag1, dTag2, dTag3):
+	inventionName = newName
+	feature1 = dFeature1
+	feature2 = dFeature2
+	tag1 = dTag1
+	tag2 = dTag2
+	tag3 = dTag3
 
 func getDrawing(newPoints):
 	points = []

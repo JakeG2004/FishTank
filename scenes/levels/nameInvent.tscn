@@ -1,5 +1,6 @@
-[gd_scene load_steps=16 format=3 uid="uid://dclnxdfk2ny35"]
+[gd_scene load_steps=17 format=3 uid="uid://dclnxdfk2ny35"]
 
+[ext_resource type="Script" path="res://scripts/nameInvent.gd" id="1_kj0vq"]
 [ext_resource type="Script" path="res://scripts/showDrawing.gd" id="2_jr36i"]
 [ext_resource type="Texture2D" uid="uid://c4xq5o4sannh6" path="res://assets/namedesk/naming_desk.png" id="2_rp38h"]
 [ext_resource type="Theme" uid="uid://pgnhucqxedsh" path="res://assets/UI/new_theme.tres" id="3_v3aca"]
@@ -27,6 +28,7 @@
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4au65"]
 
 [node name="nameInvent" type="Node2D"]
+script = ExtResource("1_kj0vq")
 
 [node name="NamingDesk" type="Sprite2D" parent="."]
 texture = ExtResource("2_rp38h")

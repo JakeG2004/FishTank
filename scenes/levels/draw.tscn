@@ -220,7 +220,6 @@ texture = ExtResource("6_wvmis")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="approve/Area2D"]
 position = Vector2(0, -3.75)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_xbxhf")
 
 [node name="draw" type="Node2D" parent="."]
