@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dclnxdfk2ny35"]
+[gd_scene load_steps=20 format=3 uid="uid://dclnxdfk2ny35"]
 
 [ext_resource type="Script" path="res://scripts/nameInvent.gd" id="1_kj0vq"]
 [ext_resource type="Script" path="res://scripts/showDrawing.gd" id="2_jr36i"]
@@ -6,6 +6,8 @@
 [ext_resource type="Theme" uid="uid://pgnhucqxedsh" path="res://assets/UI/new_theme.tres" id="3_v3aca"]
 [ext_resource type="Script" path="res://scripts/tagAdder.gd" id="4_542er"]
 [ext_resource type="PackedScene" uid="uid://b3h2vtbkpvkp8" path="res://scenes/objects/levelLoader.tscn" id="5_iu4em"]
+[ext_resource type="Texture2D" uid="uid://dvjvfwrewmhb1" path="res://assets/UI/arrow.png" id="7_kx2g8"]
+[ext_resource type="Texture2D" uid="uid://bofgxyb713v1l" path="res://assets/UI/green_arrow.png" id="8_vk8th"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_emy01"]
 
@@ -27,6 +29,9 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4au65"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_orbsr"]
+size = Vector2(506, 361)
+
 [node name="nameInvent" type="Node2D"]
 script = ExtResource("1_kj0vq")
 
@@ -37,11 +42,13 @@ texture = ExtResource("2_rp38h")
 script = ExtResource("2_jr36i")
 
 [node name="backArrow" parent="." instance=ExtResource("5_iu4em")]
+visible = false
 position = Vector2(-470, -251)
 scale = Vector2(0.36, 0.36)
 displayText = "Back to Drawing"
 
 [node name="nextArrow" parent="." instance=ExtResource("5_iu4em")]
+visible = false
 position = Vector2(422, 229)
 scale = Vector2(0.415, 0.415)
 sprite = "res://assets/UI/green_arrow.png"
@@ -172,3 +179,28 @@ script = ExtResource("4_542er")
 tagNum = 3
 
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Arrow" type="Sprite2D" parent="."]
+position = Vector2(-479, -257)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("7_kx2g8")
+
+[node name="Area2D" type="Area2D" parent="Arrow"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Arrow/Area2D"]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_orbsr")
+
+[node name="Arrow2" type="Sprite2D" parent="."]
+position = Vector2(441, 240)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("8_vk8th")
+
+[node name="Area2D" type="Area2D" parent="Arrow2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Arrow2/Area2D"]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_orbsr")
+
+[connection signal="input_event" from="Arrow/Area2D" to="." method="_on_back_clicked"]
+[connection signal="input_event" from="Arrow2/Area2D" to="." method="_on_next_clicked"]

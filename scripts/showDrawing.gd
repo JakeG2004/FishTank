@@ -13,6 +13,8 @@ var points = []
 var drawSize = 10
 var eraseSize = 20
 
+@export var drawColor = Color.BLACK
+
 @onready var inventionManager = get_tree().get_root().get_node("game/inventionManager")
 
 func _ready():
@@ -28,4 +30,4 @@ func _draw():
 		var tmpPos = point.position * scalar
 		tmpPos.x -= 150
 		tmpPos.y -= 5
-		draw_circle(tmpPos, drawSize * scalar, point.color)
+		draw_circle(tmpPos, drawSize * scalar, drawColor)

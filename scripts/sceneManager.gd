@@ -14,6 +14,8 @@ var currentScene
 #@onready var level5 = preload("res://scenes/level5.tscn")
 
 @onready var drawLev = preload("res://scenes/levels/draw.tscn")
+@onready var room1 = preload("res://scenes/levels/room1.tscn")
+@onready var battle = preload("res://scenes/levels/battle.tscn")
 @onready var test = preload("res://scenes/levels/nameInvent.tscn")
 
 # Called when the node enters the scene tree for the first time.
@@ -44,3 +46,7 @@ func loadLevel(levelName):
 			call_deferred("add_child", drawLev.instantiate())
 		"test":
 			call_deferred("add_child", test.instantiate())
+		"room1":
+			call_deferred("add_child", room1.instantiate())
+		"battle":
+			call_deferred("add_child", battle.instantiate())

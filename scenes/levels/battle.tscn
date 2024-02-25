@@ -1,0 +1,490 @@
+[gd_scene load_steps=17 format=3 uid="uid://dwjc3d3n52iir"]
+
+[ext_resource type="Script" path="res://scripts/showDrawing.gd" id="1_d1gig"]
+[ext_resource type="Texture2D" uid="uid://cm8ii11sndwy" path="res://assets/pokemon/background/arena1.png" id="1_wqivh"]
+[ext_resource type="Texture2D" uid="uid://bi0o5rsem21w0" path="res://assets/pokemon/judges/judge1.png" id="2_gobgk"]
+[ext_resource type="Script" path="res://scripts/judge.gd" id="3_lm7di"]
+[ext_resource type="Texture2D" uid="uid://cqea5b544jyso" path="res://assets/pokemon/ui/menu_button.png" id="4_2bbuq"]
+[ext_resource type="Script" path="res://scripts/combat.gd" id="4_37as7"]
+[ext_resource type="Theme" uid="uid://b32cisgucym7m" path="res://assets/pokemon/ui/battle.tres" id="5_2il3s"]
+
+[sub_resource type="Animation" id="Animation_a5th3"]
+resource_name = "player_attack"
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("drawing:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.478212, 0.814762, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("drawing:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0.61, 0.61), Vector2(0.8, 0.8), Vector2(1, 1), Vector2(0.61, 0.61)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("drawing:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(603.279, -277.049), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_dgbjo"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("drawing:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("drawing:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.61, 0.61)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("drawing:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-240, 128)]
+}
+
+[sub_resource type="Animation" id="Animation_nc0bf"]
+resource_name = "player_damage"
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("drawing:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.15),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -100), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("drawing:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.174533, 0.174533, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("drawing:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.15),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0.61, 0.61), Vector2(0.8, 0.8), Vector2(0.61, 0.61)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1ybww"]
+_data = {
+"RESET": SubResource("Animation_dgbjo"),
+"player_attack": SubResource("Animation_a5th3"),
+"player_damage": SubResource("Animation_nc0bf")
+}
+
+[sub_resource type="Animation" id="Animation_5tagd"]
+resource_name = "judge_attack"
+length = 0.25
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Judge1:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.15),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-700, 400), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Judge1:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.195477, -0.349066, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Judge1:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.3, 1.3), Vector2(1.7, 1.7), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_5q0cb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Judge1:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Judge1:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Judge1:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_y2ibk"]
+resource_name = "judge_hurt"
+length = 0.25
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Judge1:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.15),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 100), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Judge1:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.174533, -0.174533, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Judge1:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.3, 1.3), Vector2(1.5, 1.5), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_oa5hb"]
+_data = {
+"RESET": SubResource("Animation_5q0cb"),
+"judge_attack": SubResource("Animation_5tagd"),
+"judge_hurt": SubResource("Animation_y2ibk")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0jltg"]
+size = Vector2(261, 152)
+
+[node name="battle" type="Node2D"]
+
+[node name="bg" type="Sprite2D" parent="."]
+scale = Vector2(4.1, 4.1)
+texture = ExtResource("1_wqivh")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="player" type="Node2D" parent="."]
+
+[node name="drawing" type="Node2D" parent="player"]
+position = Vector2(-240, 128)
+scale = Vector2(0.61, 0.61)
+script = ExtResource("1_d1gig")
+drawColor = Color(1, 1, 1, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="player"]
+libraries = {
+"": SubResource("AnimationLibrary_1ybww")
+}
+
+[node name="enemy" type="Node2D" parent="."]
+position = Vector2(368, -144)
+scale = Vector2(0.51, 0.51)
+script = ExtResource("3_lm7di")
+
+[node name="Judge1" type="Sprite2D" parent="enemy"]
+texture = ExtResource("2_gobgk")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="enemy"]
+libraries = {
+"": SubResource("AnimationLibrary_oa5hb")
+}
+
+[node name="menu" type="Node2D" parent="."]
+script = ExtResource("4_37as7")
+
+[node name="bg" type="Sprite2D" parent="menu"]
+position = Vector2(239, 204)
+scale = Vector2(5, 1.5)
+texture = ExtResource("4_2bbuq")
+
+[node name="initMenu" type="Node2D" parent="menu"]
+
+[node name="sellbutton" type="Node2D" parent="menu/initMenu"]
+
+[node name="sell" type="Sprite2D" parent="menu/initMenu/sellbutton"]
+modulate = Color(0.631373, 0.631373, 0.631373, 1)
+position = Vector2(103, 205)
+scale = Vector2(2.29, 1.32)
+texture = ExtResource("4_2bbuq")
+
+[node name="selltext" type="RichTextLabel" parent="menu/initMenu/sellbutton"]
+offset_left = -25.0
+offset_top = 150.0
+offset_right = 230.0
+offset_bottom = 258.0
+theme = ExtResource("5_2il3s")
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+text = "[center]Sell the Product![/center]"
+
+[node name="Area2D" type="Area2D" parent="menu/initMenu/sellbutton"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="menu/initMenu/sellbutton/Area2D"]
+position = Vector2(102.5, 205)
+shape = SubResource("RectangleShape2D_0jltg")
+
+[node name="dodgebutton" type="Node2D" parent="menu/initMenu"]
+
+[node name="dodge" type="Sprite2D" parent="menu/initMenu/dodgebutton"]
+modulate = Color(0.631373, 0.631373, 0.631373, 1)
+position = Vector2(375, 205)
+scale = Vector2(2.29, 1.32)
+texture = ExtResource("4_2bbuq")
+
+[node name="dodgetext" type="RichTextLabel" parent="menu/initMenu/dodgebutton"]
+offset_left = 248.0
+offset_top = 125.0
+offset_right = 503.0
+offset_bottom = 291.0
+theme = ExtResource("5_2il3s")
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+text = "[center]Dodge the Question![/center]"
+
+[node name="Area2D" type="Area2D" parent="menu/initMenu/dodgebutton"]
+position = Vector2(272.685, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="menu/initMenu/dodgebutton/Area2D"]
+position = Vector2(102.5, 205)
+shape = SubResource("RectangleShape2D_0jltg")
+
+[node name="attackMenu" type="Node2D" parent="menu"]
+
+[node name="attack1" type="Node2D" parent="menu/attackMenu"]
+position = Vector2(1, 61)
+scale = Vector2(1, 0.5)
+
+[node name="sell" type="Sprite2D" parent="menu/attackMenu/attack1"]
+modulate = Color(0.631373, 0.631373, 0.631373, 1)
+position = Vector2(103, 205)
+scale = Vector2(2.29, 1.32)
+texture = ExtResource("4_2bbuq")
+
+[node name="text" type="RichTextLabel" parent="menu/attackMenu/attack1"]
+offset_left = -25.0
+offset_top = 150.0
+offset_right = 230.0
+offset_bottom = 258.0
+theme = ExtResource("5_2il3s")
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+text = "[center]Attack 1[/center]"
+
+[node name="Area2D" type="Area2D" parent="menu/attackMenu/attack1"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="menu/attackMenu/attack1/Area2D"]
+position = Vector2(102.5, 205)
+shape = SubResource("RectangleShape2D_0jltg")
+
+[node name="attack2" type="Node2D" parent="menu/attackMenu"]
+position = Vector2(1, 61)
+scale = Vector2(1, 0.5)
+
+[node name="dodge" type="Sprite2D" parent="menu/attackMenu/attack2"]
+modulate = Color(0.631373, 0.631373, 0.631373, 1)
+position = Vector2(375, 205)
+scale = Vector2(2.29, 1.32)
+texture = ExtResource("4_2bbuq")
+
+[node name="text" type="RichTextLabel" parent="menu/attackMenu/attack2"]
+offset_left = 248.0
+offset_top = 150.0
+offset_right = 503.0
+offset_bottom = 254.0
+theme = ExtResource("5_2il3s")
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+text = "[center]Attack 2[/center]"
+
+[node name="Area2D" type="Area2D" parent="menu/attackMenu/attack2"]
+position = Vector2(272.685, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="menu/attackMenu/attack2/Area2D"]
+position = Vector2(102.5, 205)
+shape = SubResource("RectangleShape2D_0jltg")
+
+[node name="attack3" type="Node2D" parent="menu/attackMenu"]
+position = Vector2(1, 142.235)
+scale = Vector2(1, 0.5)
+
+[node name="sell" type="Sprite2D" parent="menu/attackMenu/attack3"]
+modulate = Color(0.631373, 0.631373, 0.631373, 1)
+position = Vector2(103, 205)
+scale = Vector2(2.29, 1.32)
+texture = ExtResource("4_2bbuq")
+
+[node name="text" type="RichTextLabel" parent="menu/attackMenu/attack3"]
+offset_left = -25.0
+offset_top = 150.0
+offset_right = 230.0
+offset_bottom = 258.0
+theme = ExtResource("5_2il3s")
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+text = "[center]Pep-Talk[/center]"
+
+[node name="Area2D" type="Area2D" parent="menu/attackMenu/attack3"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="menu/attackMenu/attack3/Area2D"]
+position = Vector2(102.5, 205)
+shape = SubResource("RectangleShape2D_0jltg")
+
+[node name="attack4" type="Node2D" parent="menu/attackMenu"]
+position = Vector2(1, 142.235)
+scale = Vector2(1, 0.5)
+
+[node name="dodge" type="Sprite2D" parent="menu/attackMenu/attack4"]
+modulate = Color(0.631373, 0.631373, 0.631373, 1)
+position = Vector2(375, 205)
+scale = Vector2(2.29, 1.32)
+texture = ExtResource("4_2bbuq")
+
+[node name="text" type="RichTextLabel" parent="menu/attackMenu/attack4"]
+offset_left = 248.0
+offset_top = 152.0
+offset_right = 503.0
+offset_bottom = 260.0
+theme = ExtResource("5_2il3s")
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+text = "[center]Sales Tactics[/center]"
+
+[node name="Area2D" type="Area2D" parent="menu/attackMenu/attack4"]
+position = Vector2(272.685, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="menu/attackMenu/attack4/Area2D"]
+position = Vector2(102.5, 205)
+shape = SubResource("RectangleShape2D_0jltg")
+
+[node name="dodgeText" type="Node2D" parent="menu"]
+
+[node name="text" type="RichTextLabel" parent="menu/dodgeText"]
+offset_left = -28.0
+offset_top = 146.0
+offset_right = 509.0
+offset_bottom = 273.0
+theme = ExtResource("5_2il3s")
+theme_override_font_sizes/normal_font_size = 26
+bbcode_enabled = true
+text = "[center]Text regarding the success of your dodge[/center]"
+
+[connection signal="input_event" from="menu/initMenu/sellbutton/Area2D" to="menu" method="_on_attackmenu_clicked"]
+[connection signal="input_event" from="menu/initMenu/dodgebutton/Area2D" to="menu" method="_on_dodge_clicked"]
+[connection signal="input_event" from="menu/attackMenu/attack1/Area2D" to="menu" method="_on_attack_clicked"]
+[connection signal="input_event" from="menu/attackMenu/attack2/Area2D" to="menu" method="_on_attack_clicked"]

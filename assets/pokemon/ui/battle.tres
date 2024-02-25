@@ -1,0 +1,6 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://b32cisgucym7m"]
+
+[ext_resource type="FontFile" uid="uid://duifauehtdses" path="res://assets/pokemon/ui/Silkscreen-Regular.ttf" id="1_fduho"]
+
+[resource]
+default_font = ExtResource("1_fduho")

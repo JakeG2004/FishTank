@@ -34,5 +34,5 @@ func _on_click(_viewport, _event, _shape_idx):
 		return
 		
 	if(Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT)):
-		sceneManager.loadLevel(level)
 		inventionManager.setData(newName.text, feature1.text, feature2.text, tag1.text, tag2.text, tag3.text)
+		sceneManager.loadLevel(level)
