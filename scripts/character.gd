@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 @onready var sceneManager = get_tree().get_root().get_node("game/sceneManager")
 
+
 @onready var ap = get_node("AnimationPlayer")
 @onready var sprite = get_node("Sprite2D")
 
@@ -48,3 +49,7 @@ func updateAnims():
 func _on_area_2d_area_entered(area):
 	if(area.is_in_group("judge1")):
 		sceneManager.loadLevel("battle")
+	if(area.is_in_group("judge2")):
+		sceneManager.loadLevel("battle2")
+	if(area.is_in_group("judge3")):
+		sceneManager.loadLevel("battle3")

@@ -1,0 +1,51 @@
+[gd_scene load_steps=5 format=3 uid="uid://clhqlbfkdxy8d"]
+
+[ext_resource type="Script" path="res://scripts/win.gd" id="1_gvj2a"]
+[ext_resource type="Texture2D" uid="uid://cm8ii11sndwy" path="res://assets/pokemon/background/arena1.png" id="2_w2uru"]
+[ext_resource type="Texture2D" uid="uid://cbe33eltl0ysa" path="res://assets/UI/card.png" id="3_r06d3"]
+[ext_resource type="Theme" uid="uid://pgnhucqxedsh" path="res://assets/UI/new_theme.tres" id="4_way0y"]
+
+[node name="win" type="Node2D"]
+script = ExtResource("1_gvj2a")
+
+[node name="Arena1" type="Sprite2D" parent="."]
+position = Vector2(302, 176)
+scale = Vector2(8, 8)
+texture = ExtResource("2_w2uru")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Card" type="Sprite2D" parent="."]
+position = Vector2(6, -11)
+rotation = -1.58985
+texture = ExtResource("3_r06d3")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = -9.99998
+offset_top = -211.0
+offset_right = 254.0
+offset_bottom = -144.0
+rotation = 0.00095016
+theme = ExtResource("4_way0y")
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 66
+text = "Fish Tank!"
+
+[node name="Button" type="Button" parent="."]
+offset_left = 32.0
+offset_top = -51.0
+offset_right = 183.0
+offset_bottom = -8.0
+theme = ExtResource("4_way0y")
+text = "Start Game!"
+
+[node name="Button2" type="Button" parent="."]
+offset_left = 32.0
+offset_top = 62.0
+offset_right = 183.0
+offset_bottom = 105.0
+theme = ExtResource("4_way0y")
+text = "Exit Game!"
+
+[connection signal="pressed" from="Button" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_exit_pressed"]

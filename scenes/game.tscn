@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://crsku04c2hgr4"]
+[gd_scene load_steps=6 format=3 uid="uid://crsku04c2hgr4"]
 
 [ext_resource type="PackedScene" uid="uid://bung32w323jlp" path="res://scenes/levels/draw.tscn" id="1_4c58e"]
 [ext_resource type="Script" path="res://scripts/judgeManager.gd" id="1_6vd6h"]
 [ext_resource type="Script" path="res://scripts/sceneManager.gd" id="1_mtvix"]
 [ext_resource type="Script" path="res://scripts/inventionManager.gd" id="3_s6iso"]
+[ext_resource type="AudioStream" uid="uid://ctci511j0k8cc" path="res://assets/UI/glooby.wav" id="5_218ji"]
 
 [node name="game" type="Node2D"]
 
@@ -17,3 +18,7 @@ script = ExtResource("3_s6iso")
 script = ExtResource("1_mtvix")
 
 [node name="invent" parent="sceneManager" instance=ExtResource("1_4c58e")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_218ji")
+autoplay = true

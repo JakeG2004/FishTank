@@ -1,0 +1,68 @@
+[gd_scene load_steps=9 format=3 uid="uid://cp35rvgkwjh1j"]
+
+[ext_resource type="Script" path="res://scripts/win.gd" id="1_028kt"]
+[ext_resource type="Texture2D" uid="uid://cm8ii11sndwy" path="res://assets/pokemon/background/arena1.png" id="1_bveh1"]
+[ext_resource type="Texture2D" uid="uid://bi0o5rsem21w0" path="res://assets/pokemon/judges/judge1.png" id="2_1k7yk"]
+[ext_resource type="Texture2D" uid="uid://xxfl8i28gq1x" path="res://assets/pokemon/character/player.png" id="2_v4td6"]
+[ext_resource type="Texture2D" uid="uid://c2jly7l5hi332" path="res://assets/pokemon/judges/judge2.png" id="3_jh7oo"]
+[ext_resource type="Texture2D" uid="uid://b73xoah4sr7ol" path="res://assets/pokemon/judges/judge3.png" id="4_5vp3b"]
+[ext_resource type="Theme" uid="uid://b32cisgucym7m" path="res://assets/pokemon/ui/battle.tres" id="6_he21q"]
+[ext_resource type="Texture2D" uid="uid://cqea5b544jyso" path="res://assets/pokemon/ui/menu_button.png" id="7_xudw5"]
+
+[node name="win" type="Node2D"]
+script = ExtResource("1_028kt")
+
+[node name="Arena1" type="Sprite2D" parent="."]
+position = Vector2(302, 176)
+scale = Vector2(8, 8)
+texture = ExtResource("1_bveh1")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Judge1" type="Sprite2D" parent="."]
+position = Vector2(-8.00003, -72)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("2_1k7yk")
+
+[node name="Judge2" type="Sprite2D" parent="."]
+position = Vector2(-214, -47)
+rotation = -0.140222
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("3_jh7oo")
+
+[node name="Judge3" type="Sprite2D" parent="."]
+position = Vector2(223, -53)
+rotation = 0.125196
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("4_5vp3b")
+
+[node name="Player" type="Sprite2D" parent="."]
+position = Vector2(-14, 99)
+scale = Vector2(8, 8)
+texture = ExtResource("2_v4td6")
+hframes = 9
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = -539.0
+offset_top = 202.0
+offset_right = 524.0
+offset_bottom = 584.0
+theme = ExtResource("6_he21q")
+theme_override_font_sizes/normal_font_size = 46
+text = "You Successfully sold to the Fish!"
+
+[node name="MenuButton" type="Sprite2D" parent="."]
+position = Vector2(-480, -236)
+texture = ExtResource("7_xudw5")
+
+[node name="Button" type="Button" parent="MenuButton"]
+offset_left = -56.0
+offset_top = -57.0
+offset_right = 58.0
+offset_bottom = 57.0
+theme = ExtResource("6_he21q")
+text = "Back to
+Menu"
+flat = true
+
+[connection signal="pressed" from="MenuButton/Button" to="." method="_on_button_pressed"]

@@ -15,12 +15,19 @@ var currentScene
 
 @onready var drawLev = preload("res://scenes/levels/draw.tscn")
 @onready var room1 = preload("res://scenes/levels/room1.tscn")
+@onready var room2 = preload("res://scenes/levels/room2.tscn")
+@onready var room3 = preload("res://scenes/levels/room3.tscn")
 @onready var battle = preload("res://scenes/levels/battle.tscn")
+@onready var battle2 = preload("res://scenes/levels/battle2.tscn")
+@onready var battle3 = preload("res://scenes/levels/battle3.tscn")
 @onready var test = preload("res://scenes/levels/nameInvent.tscn")
+@onready var win = preload("res://scenes/levels/win.tscn")
+@onready var lose = preload("res://scenes/levels/lose.tscn")
+@onready var menu = preload("res://scenes/levels/menu.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	loadLevel("draw")
+	loadLevel("menu")
 	
 func reload():
 	loadLevel(currentScene)
@@ -44,9 +51,23 @@ func loadLevel(levelName):
 			return
 		"draw":
 			call_deferred("add_child", drawLev.instantiate())
+		"menu":
+			call_deferred("add_child", menu.instantiate())
 		"test":
 			call_deferred("add_child", test.instantiate())
 		"room1":
 			call_deferred("add_child", room1.instantiate())
+		"room2":
+			call_deferred("add_child", room2.instantiate())
+		"room3":
+			call_deferred("add_child", room3.instantiate())
 		"battle":
 			call_deferred("add_child", battle.instantiate())
+		"battle2":
+			call_deferred("add_child", battle2.instantiate())
+		"battle3":
+			call_deferred("add_child", battle3.instantiate())
+		"win":
+			call_deferred("add_child", win.instantiate())
+		"lose":
+			call_deferred("add_child", lose.instantiate())
